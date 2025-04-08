@@ -34,7 +34,7 @@
             
             
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <Label Text="¿Olvidaste tu contraseaaaaña?" TextColor="Blue" HorizontalOptions="Center">
+                <Label Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnForgotPassword"/>
                     </Label.GestureRecognizers>
