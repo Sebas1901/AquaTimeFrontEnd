@@ -28,17 +28,19 @@
             <Entry x:Name="UsernameEntry" Placeholder="Usuario" Keyboard="Text" BackgroundColor="White"/>
             <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" BackgroundColor="White"/>
 
+   
             <!-- Botón de Login -->
             <Button Text="Iniciar Sesión" Clicked="OnLoginClicked" BackgroundColor="#3280b6" TextColor="White" CornerRadius="10"/>
-
-
+            
+            
             <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
-                <!-- Links de recuperación -->
                 <Label Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnForgotPassword"/>
                     </Label.GestureRecognizers>
                 </Label>
+
+            
 
                 <!--<Label Text="¿Olvidaste tu usuario?" TextColor="Blue" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
