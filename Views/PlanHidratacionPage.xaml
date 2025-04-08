@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AquaTime.Views.PlanHidratacionPage"
+             >
+
+
+    <VerticalStackLayout Spacing="25" Padding="30">
+        <Label Text="Elige tu plan de hidratación:"
+               FontSize="20"
+               HorizontalOptions="Center" />
+
+        <!-- Picker para mostrar los planes -->
+        <Picker x:Name="PlanPicker" 
+                Title="Selecciona un Plan"
+                SelectedIndexChanged="OnPlanSelectedChanged">
+        </Picker>
+
+        <!-- Botón para cambiar el plan -->
+
+        <Button Text="Cambiar Plan" 
+                Clicked="OnCambiarClicked" 
+                HorizontalOptions="FillAndExpand" 
+                Margin="0,10"/>
+        
+        
+
+        <!-- Botón para cancelar y regresar -->
+        
+        <Button Text="Cancelar" 
+                HorizontalOptions="FillAndExpand" 
+                BackgroundColor="Gray"
+                TextColor="White"
+                Margin="0,10"
+                Clicked="OnCancelarClicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

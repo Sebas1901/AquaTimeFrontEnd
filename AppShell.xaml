@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AquaTime.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:AquaTime.Views"
+    Shell.FlyoutBehavior="Flyout"
+    Title="AquaTime">
+
+
+    <!-- Encabezado para el logo-->
+    <Shell.FlyoutHeader>
+        <Grid HeightRequest="60">
+            <Image Source="logo.png" Aspect="AspectFit" HorizontalOptions="Center" VerticalOptions="Center" />
+        </Grid>
+    </Shell.FlyoutHeader>
+
+
+    <!-- Definir navegacion de paginas que no estan en el Flyout -->
+    <ShellContent 
+    ContentTemplate="{DataTemplate views:LoginPage}" 
+    Route="LoginPage" 
+    Shell.FlyoutBehavior="Disabled"
+    Shell.FlyoutItemIsVisible="False"/>
+
+    <ShellContent 
+    ContentTemplate="{DataTemplate views:AltaUsuarioPage}" 
+    Route="AltaUsuarioPage" 
+    Shell.FlyoutBehavior="Disabled" 
+    Shell.FlyoutItemIsVisible="False"/>
+
+
+    <ShellContent ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
+
+
+
+
+
+    <!-- Opciones del menú -->
+    
+
+    <FlyoutItem Title="Cambiar Tipo de Plan" Icon="plan.png">
+        <ShellContent ContentTemplate="{DataTemplate views:PlanHidratacionPage}" />
+    </FlyoutItem>
+    
+
+    <FlyoutItem Title="Plan Hidratación Personalizado" Icon="calendario.png">
+        <ShellContent ContentTemplate="{DataTemplate views:PlanPersonalizadoPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Registrar Hidratación" Icon="logo.png">
+        <ShellContent ContentTemplate="{DataTemplate views:RegistroHidratacionPage}" />
+    </FlyoutItem>
+
+    <MenuItem Text="Cerrar sesión" IconImageSource="login.png" Clicked="MenuItem_Clicked" />
+
+
+
+
+
+</Shell>

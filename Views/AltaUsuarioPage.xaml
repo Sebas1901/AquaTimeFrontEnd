@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.AltaUsuarioPage">
+    
+    <VerticalStackLayout Spacing="25" Padding="30">
+        
+        <Label Text="Solicitud de Usuario Aquatime"
+            FontSize="20"
+            HorizontalOptions="Center" />
+
+        
+        <Button Text="Crear Usuario" 
+             Clicked="OnCrearUsuarioClicked" 
+             HorizontalOptions="FillAndExpand" 
+             Margin="0,10"/>
+
+        <Button Text="Cancelar" 
+             HorizontalOptions="FillAndExpand" 
+             BackgroundColor="Gray"
+             TextColor="White"
+             Margin="0,10"
+             Clicked="OnCancelarClicked"/>
+    </VerticalStackLayout>
+</ContentPage>
+
+
+
+
+
+   
+

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.RegistroHidratacionPage">
+    <!-- Usamos un AbsoluteLayout para que la imagen esté al fondo -->
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+         
+        <Image Source="hidratacion.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All"/>
+
+        <!-- Contenido encima de la imagen -->
+        <VerticalStackLayout Padding="20" 
+                             
+                             AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                             AbsoluteLayout.LayoutFlags="All">
+            <Label Text="Registrar Hidratación" FontSize="24" HorizontalOptions="Center" />
+
+            <Entry x:Name="txtCantidad" 
+                    Placeholder="Ingrese cantidad en ML" 
+                    Keyboard="Numeric" 
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="0,10" 
+                    BackgroundColor="White" 
+                    TextColor="Black"/>
+
+            <Label Text="Digite la cantidad de mililítros de agua que ha ingerido el día de hoy, puede registrar varias tomas durante el día hasta que logre alcanzar la meta definida en su Plan de Hidratación" 
+                    HorizontalOptions="Center" 
+                    Margin="0,10" />
+
+            <!-- Label debajo del Entry -->
+            <Label x:Name="lblErrorMessage" 
+                TextColor="Red" 
+                HorizontalOptions="Center" 
+                IsVisible="False" 
+                Margin="0,10"/>
+
+            <Button Text="Registrar" 
+                    Clicked="OnRegistrarClicked" 
+                    HorizontalOptions="FillAndExpand" 
+                    Margin="0,10"/>
+
+            <Button Text="Cancelar" 
+                    HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    Margin="0,10"
+                    Clicked="OnCancelarClicked"/>
+            
+            
+        </VerticalStackLayout>
+
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,58 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.MainPage">
+
+    <!-- Usamos un AbsoluteLayout para colocar los elementos de la página encima de la imagen de fondo -->
+    <AbsoluteLayout>
+
+        <!-- Imagen de fondo -->
+        <Image Source="fondo.jpg"
+               Aspect="AspectFill"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"
+               AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All"/>
+
+        <!-- Contenido encima de la imagen de fondo -->
+        <ScrollView>
+            <VerticalStackLayout Padding="30,0" Spacing="25" VerticalOptions="CenterAndExpand">
+
+                
+                 <Label x:Name="UsuarioLabel" Text="" FontSize="14" HorizontalOptions="Center"/>
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5" >
+                    <Label x:Name="MetaLabel" Text="" FontSize="12" HorizontalOptions="Center" />
+                    <Label x:Name="ConsumidoLabel" Text="" FontSize="12" HorizontalOptions="Center"/>
+                </HorizontalStackLayout>   
+                    
+                
+
+                
+                
+                
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Logo centrado y con espacio adicional en la parte superior -->
+        <Image
+            Source="botella.png"
+            HeightRequest="280"
+            WidthRequest="230" 
+            Aspect="Fill"
+            SemanticProperties.Description="botella"
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5"
+            AbsoluteLayout.LayoutFlags="All"/>
+
+        <!-- Gráfico de hidratación (rectángulo) encima de la botella -->
+        <BoxView x:Name="MetaDiariaBar"
+                 Color="Transparent"
+                 AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5"
+                 AbsoluteLayout.LayoutFlags="All"/>
+
+        <BoxView x:Name="ConsumidoBar"
+                 Color="Blue"
+                 AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5"
+                 AbsoluteLayout.LayoutFlags="All"/>
+    </AbsoluteLayout>
+</ContentPage>

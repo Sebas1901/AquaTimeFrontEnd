@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.PlanPersonalizadoPage">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Personalizar Hidratación"
+                   FontSize="20"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20" />
+
+            <Label Text="A pesar de que cuantas con un Plan de Hidratación, puedes establecer planes a tu medida, definiendo rangos de fecha para los que aplican."
+                   FontSize="12"
+                   HorizontalOptions="Center"
+                   Margin="0,10,0,20"
+                   HorizontalTextAlignment="Center" />
+
+            <Entry x:Name="metaDiariaEntry"
+                   Placeholder="Meta diaria (ml)"
+                   Keyboard="Numeric"
+                   WidthRequest="300"
+                   HorizontalOptions="FillAndExpand" />
+
+            <!-- Fecha Inicio -->
+            <VerticalStackLayout>
+                <Label Text="Fecha Inicio"
+                       FontSize="14"
+                       Margin="0,0,0,5" 
+                       HorizontalOptions="Center"/>
+                <DatePicker x:Name="fechaInicioPicker"
+                            WidthRequest="300"
+                            HorizontalOptions="FillAndExpand" />
+            </VerticalStackLayout>
+
+            <!-- Fecha Fin -->
+            <VerticalStackLayout>
+                <Label Text="Fecha Fin"
+                       FontSize="14"
+                       Margin="0,0,0,5" 
+                       HorizontalOptions="Center"/>
+                <DatePicker x:Name="fechaFinPicker"
+                            WidthRequest="300"
+                            HorizontalOptions="FillAndExpand" />
+            </VerticalStackLayout>
+
+            <Label x:Name="errorLabel"
+                   TextColor="Red"
+                   IsVisible="False"
+                   Margin="0,10,0,0"
+                   HorizontalOptions="Center"/>
+
+            <Button Text="Procesar"
+                    Clicked="ProcesarRegistro"
+                    WidthRequest="300"
+                    HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Cancelar"
+                    Clicked="OnCancelarClicked"
+                    BackgroundColor="Gray"
+                    TextColor="White"
+                    WidthRequest="300"
+                    HorizontalOptions="FillAndExpand" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

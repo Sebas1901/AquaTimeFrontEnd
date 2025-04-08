@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.LoginPage"
+             >
+    <Grid>
+        <!-- Imagen de fondo -->
+        <Image Source="fondo.jpg"
+             Aspect="AspectFill"
+             VerticalOptions="FillAndExpand"
+             HorizontalOptions="FillAndExpand"/>
+
+        <VerticalStackLayout Padding="30" VerticalOptions="Center" Spacing="15">
+
+            <!-- Título de la App -->
+            <Label 
+              Text="AquaTime 1.0"
+              FontSize="28"
+              FontAttributes="Bold"
+              HorizontalOptions="Center"
+              TextColor="#3280b6"
+              Margin="0,0,0,30"/>
+
+            <!-- Logo -->
+            <Image Source="logo.png" HeightRequest="120" HorizontalOptions="Center" Margin="0,0,0,20"/>
+
+            <!-- Campos de usuario y contraseña -->
+            <Entry x:Name="UsernameEntry" Placeholder="Usuario" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="PasswordEntry" Placeholder="Contraseña" IsPassword="True" BackgroundColor="White"/>
+
+            <!-- Botón de Login -->
+            <Button Text="Iniciar Sesión" Clicked="OnLoginClicked" BackgroundColor="#3280b6" TextColor="White" CornerRadius="10"/>
+
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                <!-- Links de recuperación -->
+                <Label Text="¿Olvidaste tu contraseña?" TextColor="Blue" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotPassword"/>
+                    </Label.GestureRecognizers>
+                </Label>
+
+                <!--<Label Text="¿Olvidaste tu usuario?" TextColor="Blue" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnForgotUser"/>
+                    </Label.GestureRecognizers>
+                </Label>-->
+            </HorizontalStackLayout>
+
+            <!-- Link de "Solicitar Usuario" debajo, centrado -->
+            <Label Text="Solicitar usuario" TextColor="Blue" HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnRequestUser"/>
+                </Label.GestureRecognizers>
+            </Label>
+            
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

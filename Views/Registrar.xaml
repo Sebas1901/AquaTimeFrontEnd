@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AquaTime.Views.Registrar"
+             Title="Registrar">
+    <Grid>
+        <!-- Imagen de fondo -->
+        <Image Source="fondo.jpg"
+           Aspect="AspectFill"
+           Opacity="0.3"
+           VerticalOptions="FillAndExpand"
+           HorizontalOptions="FillAndExpand"/>
+
+        <VerticalStackLayout Padding="30" VerticalOptions="Center" Spacing="10">
+
+
+            <Label 
+     Text="AquaTime 1.0"
+     FontSize="28"
+     FontAttributes="Bold"
+     HorizontalOptions="Center"
+     TextColor="#3280b6"
+     Margin="0,0,0,30"/>
+            <Entry x:Name="regisUsuario" Placeholder="Usuario" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisNombre" Placeholder="Nombre" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisEmail" Placeholder="Email" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="registelefono" Placeholder="Telefono"  WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisPassword" Placeholder="Password" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisfechaNac" Placeholder="Fecha Nacimiento" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regispeso" Placeholder="Peso"  WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisAvatar" Placeholder="Avatar"  WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+            <Entry x:Name="regisCodPlan" Placeholder="Plan" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
+
+            <Button Text="Iniciar Sesión" Clicked="OnRegistrarclicked" BackgroundColor="#3280b6" TextColor="White" CornerRadius="10"/>
+        </VerticalStackLayout>
+    </Grid>
+
+</ContentPage>
