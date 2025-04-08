@@ -63,7 +63,7 @@ namespace AquaTime.Views
 
 
         private async void OnRequestUser(object sender, EventArgs e){
-            await Navigation.PushAsync(registrar());
+            await Navigation.PushAsync( new Registrar());
         }
 
         protected override void OnAppearing()
