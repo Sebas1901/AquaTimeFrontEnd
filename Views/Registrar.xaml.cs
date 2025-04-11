@@ -1,8 +1,9 @@
-using Newtonsoft.Json;
+Ôªøusing Newtonsoft.Json;
 using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using AquaTime.Models;
+
 namespace AquaTime.Views;
 
 public partial class Registrar : ContentPage
@@ -10,11 +11,12 @@ public partial class Registrar : ContentPage
 	public Registrar()
 	{
 		InitializeComponent();
-	}
+    
+    }
 
     private async void OnRegistrarclicked(object sender, EventArgs e)
     {
-        // Llamar a validarDatos de manera asÌncrona
+        // Llamar a validarDatos de manera as√≠ncrona
         bool datosValidos = await validarDatos(
             regisNombre.Text,
             regisUsuario.Text,
@@ -24,13 +26,14 @@ public partial class Registrar : ContentPage
             regisAvatar.Text,
             regisCodPlan.Text,
             regisEmail.Text,
-            regisPassword.Text
+            regisPassword.Text,
+            regisConfirmarPassword.Text
         );
 
-        // Verificar si los datos son v·lidos
+        // Verificar si los datos son v√°lidos
         if (datosValidos)
         {
-            // Si los datos son v·lidos, ir al API
+            // Si los datos son v√°lidos, ir al API
             RegistrarRequest req = new RegistrarRequest();
             req.usuario = new Usuario();
             req.usuario.usuario = regisUsuario.Text;
@@ -48,7 +51,7 @@ public partial class Registrar : ContentPage
             else
             {
                 // If the date format is invalid, you can handle it here
-                Console.WriteLine("El formato de la fecha es inv·lido.");
+                Console.WriteLine("El formato de la fecha es inv√°lido.");
 
                 // Optionally, you can set fechaNac to a default value or handle it as needed
                 req.usuario.fechaNacimiento = DateTime.MinValue; // Example default value
@@ -62,7 +65,7 @@ public partial class Registrar : ContentPage
             }
             else
             {
-                Console.WriteLine("El peso ingresado no es v·lido.");
+                Console.WriteLine("El peso ingresado no es v√°lido.");
             }
 
             req.usuario.avatar = regisAvatar.Text;
@@ -75,7 +78,7 @@ public partial class Registrar : ContentPage
             }
             else
             {
-                Console.WriteLine("El cÛdigo de tipo de plan no es v·lido.");
+                Console.WriteLine("El c√≥digo de tipo de plan no es v√°lido.");
             }
 
             var jsonContent = new StringContent(JsonConvert.SerializeObject(req), Encoding.UTF8, "application/json");
@@ -101,7 +104,7 @@ public partial class Registrar : ContentPage
                         else
                         {
                             // Show alert if registration is unsuccessful
-                            await DisplayAlert("Registro incorrecto", "No se registrÛ el usuario", "Aceptar");
+                            await DisplayAlert("Registro incorrecto", "No se registr√≥ el usuario", "Aceptar");
                         }
                     }
                     else
@@ -113,7 +116,7 @@ public partial class Registrar : ContentPage
                 catch (Exception ex)
                 {
                     // Handle any exceptions (e.g., network errors) and show a user-friendly message
-                    await DisplayAlert("Error", "OcurriÛ un error al intentar registrar al usuario. " + ex.Message, "Aceptar");
+                    await DisplayAlert("Error", "Ocurri√≥ un error al intentar registrar al usuario. " + ex.Message, "Aceptar");
                 }
             }
 
@@ -122,60 +125,75 @@ public partial class Registrar : ContentPage
 
 
 
-    private async Task<bool> validarDatos(string nombre, string usuario, string telefono, string fechaNac, string peso, string avatar, string codPlan, string correo, string password)
+    private async Task<bool> validarDatos(string nombre, string usuario, string telefono, string fechaNac, string peso, string avatar, string codPlan, string correo, string password, string confirmpassword)
     {
-        // Validar que los campos obligatorios no estÈn vacÌos
+        // Validar que los campos obligatorios no est√©n vac√≠os
         if (string.IsNullOrEmpty(regisUsuario.Text) || string.IsNullOrEmpty(regisNombre.Text) ||
-     string.IsNullOrEmpty(regisEmail.Text) || string.IsNullOrEmpty(registelefono.Text) ||
-     string.IsNullOrEmpty(regisPassword.Text) || string.IsNullOrEmpty(regisfechaNac.Text) ||
-     string.IsNullOrEmpty(regispeso.Text) || string.IsNullOrEmpty(regisAvatar.Text) ||
-     string.IsNullOrEmpty(regisCodPlan.Text))
+            string.IsNullOrEmpty(regisEmail.Text) || string.IsNullOrEmpty(registelefono.Text) ||
+            string.IsNullOrEmpty(regisPassword.Text) || string.IsNullOrEmpty(regisfechaNac.Text) ||
+            string.IsNullOrEmpty(regispeso.Text) || string.IsNullOrEmpty(regisAvatar.Text) ||
+            string.IsNullOrEmpty(regisCodPlan.Text))
         {
             await DisplayAlert("Error", "Todos los campos son obligatorios.", "OK");
             return false;
         }
 
-        // Validar formato del correo electrÛnico
+        // Validar formato del correo electr√≥nico
         string patronCorreo = @"^[^@\s]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$";
         if (!Regex.IsMatch(correo, patronCorreo))
         {
-            await DisplayAlert("Error", "El correo electrÛnico no es v·lido.", "OK");
+            await DisplayAlert("Error", "El correo electr√≥nico no es v√°lido.", "OK");
             return false;
         }
 
-        // Validar que la contraseÒa tenga al menos 8 caracteres
+        // Validar que la contrase√±a tenga al menos 8 caracteres
         if (password.Length < 8)
         {
-            await DisplayAlert("Error", "La contraseÒa debe tener al menos 8 caracteres.", "OK");
+            await DisplayAlert("Error", "La contrase√±a debe tener al menos 8 caracteres.", "OK");
             return false;
         }
 
-        // Validar que el telÈfono tenga solo n˙meros y al menos 8 dÌgitos
+        // Validar que el tel√©fono tenga solo n√∫meros y al menos 8 d√≠gitos
         if (!Regex.IsMatch(telefono, @"^\d{8,}$"))
         {
-            await DisplayAlert("Error", "El telÈfono debe tener al menos 8 dÌgitos y solo contener n˙meros.", "OK");
+            await DisplayAlert("Error", "El tel√©fono debe tener al menos 8 d√≠gitos y solo contener n√∫meros.", "OK");
             return false;
         }
+
+        // Validar la fecha de nacimiento
         DateTime fechaNacValida;
         if (string.IsNullOrEmpty(fechaNac) || !DateTime.TryParse(fechaNac, out fechaNacValida) || fechaNacValida > DateTime.Today)
         {
-            await DisplayAlert("Error", "La fecha de nacimiento no es v·lida o es futura.", "OK");
+            await DisplayAlert("Error", "La fecha de nacimiento no es v√°lida o es futura.", "OK");
             return false;
         }
 
-        // Validar que el usuario tenga al menos 18 aÒos
+        // Validar que el usuario tenga al menos 18 a√±os
         DateTime fechaActual = DateTime.Today;
         int edad = fechaActual.Year - fechaNacValida.Year;
-        if (fechaNacValida.Date > fechaActual.AddYears(-edad)) edad--; // Si no ha cumplido aÒos a˙n
+        if (fechaNacValida.Date > fechaActual.AddYears(-edad)) edad--; // Si no ha cumplido a√±os a√∫n
 
         if (edad < 18)
         {
-            await DisplayAlert("Error", "El usuario debe tener al menos 18 aÒos.", "OK");
+            await DisplayAlert("Error", "El usuario debe tener al menos 18 a√±os.", "OK");
             return false;
         }
 
-        // Si todo es v·lido
+        // Validar que las contrase√±as coincidan
+        if (password != confirmpassword)
+        {
+            await DisplayAlert("Error", "Las contrase√±as no coinciden.", "OK");
+            return false;
+        }
+
+
+
+        // Si todo es v√°lido
         return true;
     }
+   
+    
 
+
+    // Llamada a la l√≥gica de registro
 }
