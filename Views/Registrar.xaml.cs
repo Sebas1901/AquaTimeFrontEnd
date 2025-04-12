@@ -3,15 +3,18 @@ using System;
 using System.Text;
 using System.Text.RegularExpressions;
 using AquaTime.Models;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace AquaTime.Views;
 
 public partial class Registrar : ContentPage
 {
-	public Registrar()
-	{
-		InitializeComponent();
-    
+    public Registrar()
+    {
+        InitializeComponent();
+       
     }
 
     private async void OnRegistrarclicked(object sender, EventArgs e)
@@ -191,8 +194,8 @@ public partial class Registrar : ContentPage
         // Si todo es válido
         return true;
     }
-   
-    
+
+
 
 
     // Llamada a la lógica de registro

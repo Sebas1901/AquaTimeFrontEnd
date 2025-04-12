@@ -24,8 +24,7 @@
             <Entry x:Name="regisNombre" Placeholder="Nombre" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
             <Entry x:Name="regisEmail" Placeholder="Email" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
             <Entry x:Name="registelefono" Placeholder="Telefono" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
-            <Entry x:Name="regisPassword" Placeholder="Password" WidthRequest="600" Keyboard="Text" BackgroundColor="White" IsPassword="true"/>
-
+            <Entry x:Name="regisPassword" Placeholder="Password"  WidthRequest="600"  Keyboard="Text" BackgroundColor="White" IsPassword="true" />
             <Entry x:Name="regisConfirmarPassword" Placeholder=" ConfirmPassword" WidthRequest="600" Keyboard="Text" BackgroundColor="White" IsPassword="true"/>
             <Entry x:Name="regisfechaNac" Placeholder="Fecha Nacimiento" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
             <Entry x:Name="regispeso" Placeholder="Peso" WidthRequest="600" Keyboard="Text" BackgroundColor="White"/>
